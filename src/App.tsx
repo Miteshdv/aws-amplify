@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    fetch('https://ren3k9ho7g.execute-api.us-west-2.amazonaws.com/dev/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error fetching data:', error))
+  }, [])
 
   return (
     <>
@@ -18,6 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
+        {data}
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
