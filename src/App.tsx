@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<any>(null)
 
   useEffect(() => {
     fetch('https://ren3k9ho7g.execute-api.us-west-2.amazonaws.com/dev/')
@@ -26,7 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        {data}
+        {data?.message || 'Loading...'}
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
