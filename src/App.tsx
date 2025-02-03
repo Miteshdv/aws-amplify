@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState<any>(null)
 
   useEffect(() => {
-    fetch('https://rqf12hoj78.execute-api.us-west-2.amazonaws.com/dev')
+    fetch('https://rqf12hoj78.execute-api.us-west-2.amazonaws.com/dev/')
       .then(response => response.json())
       .then(data => setData(data))
       .catch(error => console.error('Error fetching data:', error))
